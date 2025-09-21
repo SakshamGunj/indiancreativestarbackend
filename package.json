@@ -1,0 +1,30 @@
+{
+  "name": "cashfree-payment-server",
+  "version": "1.0.0",
+  "description": "Cashfree Payment API Server for Indian Creative Star",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "dev": "node server.js",
+    "start": "node server.js",
+    "build": "echo 'No build step required'"
+  },
+  "dependencies": {
+    "cashfree-pg": "^5.0.8",
+    "cors": "^2.8.5",
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "keywords": [
+    "cashfree",
+    "payment",
+    "api",
+    "vercel",
+    "nodejs"
+  ],
+  "author": "Daami Event",
+  "license": "MIT"
+}
