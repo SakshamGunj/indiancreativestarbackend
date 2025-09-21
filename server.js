@@ -9,11 +9,11 @@ dotenv.config();
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-// Initialize Cashfree SDK
+// Initialize Cashfree SDK with hardcoded credentials
 const cashfree = new Cashfree(
   CFEnvironment.PRODUCTION, // Always use production for live deployment
-  process.env.CASHFREE_CLIENT_ID,
-  process.env.CASHFREE_CLIENT_SECRET
+  '50613090c329a15663b2765f45031605', // Hardcoded Client ID
+  'cfsk_ma_prod_6165faf46209e032eab4c853d3226b66_b90a4aa0' // Hardcoded Client Secret
 );
 
 // Middleware
@@ -25,9 +25,10 @@ app.get('/health', (req, res) => {
   res.json({
     success: true,
     message: 'Cashfree Payment Server is running',
-    environment: process.env.CASHFREE_ENVIRONMENT || 'production',
+    environment: 'production',
+    credentials: 'hardcoded',
     timestamp: new Date().toISOString(),
-    version: '1.0.0'
+    version: '1.0.2'
   });
 });
 
@@ -200,9 +201,10 @@ app.use((error, req, res, next) => {
 // Start server
 app.listen(PORT, () => {
   console.log(`🚀 Cashfree Payment Server running on port ${PORT}`);
-  console.log(`📊 Environment: ${process.env.CASHFREE_ENVIRONMENT || 'production'}`);
-  console.log(`🔑 Client ID: ${process.env.CASHFREE_CLIENT_ID ? 'Set' : 'Not set'}`);
-  console.log(`🔐 Client Secret: ${process.env.CASHFREE_CLIENT_SECRET ? 'Set' : 'Not set'}`);
+  console.log(`📊 Environment: production`);
+  console.log(`🔑 Client ID: Hardcoded`);
+  console.log(`🔐 Client Secret: Hardcoded`);
+  console.log(`🔄 Deployment: v1.0.2 - Hardcoded credentials`);
   console.log('Available endpoints:');
   console.log('  GET  /health');
   console.log('  POST /create-order');
